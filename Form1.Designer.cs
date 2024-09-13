@@ -28,56 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
             button1 = new Button();
             comboBox1 = new ComboBox();
             label1 = new Label();
             button2 = new Button();
             label2 = new Label();
             textBox1 = new TextBox();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // listView1
-            // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
-            listView1.FullRowSelect = true;
-            listView1.Location = new Point(12, 112);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(489, 701);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "ID";
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Name";
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Serial Number";
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Description";
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "Purchase Date";
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "Status";
             // 
             // button1
             // 
@@ -102,7 +61,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 80);
+            label1.Location = new Point(12, 76);
             label1.Name = "label1";
             label1.Size = new Size(66, 15);
             label1.TabIndex = 3;
@@ -133,40 +92,53 @@
             textBox1.Size = new Size(405, 23);
             textBox1.TabIndex = 6;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridView1.Location = new Point(16, 116);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(478, 697);
+            dataGridView1.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(507, 825);
+            Controls.Add(dataGridView1);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(button1);
-            Controls.Add(listView1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
         private Button button1;
         private ComboBox comboBox1;
         private Label label1;
         private Button button2;
         private Label label2;
         private TextBox textBox1;
+        private DataGridView dataGridView1;
     }
 }
