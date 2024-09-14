@@ -14,24 +14,22 @@ namespace WinFormsApp1
 
 
             // Bind the list to a DataGridView
-            dataGridView1.DataSource = InventoryManager.GetItems();
+            dataGridView1.DataSource = StudentManager.Create().GetItems();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2();
             form.ShowDialog(this);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = StudentManager.Create().GetItems();
+            dataGridView1.Refresh();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-    }
-
-    internal class Person
-    {
-        public string Name { get; internal set; }
-        public int ID { get; internal set; }
     }
 }
