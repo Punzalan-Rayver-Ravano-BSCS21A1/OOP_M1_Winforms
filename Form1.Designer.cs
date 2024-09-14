@@ -46,6 +46,7 @@
             button1.TabIndex = 1;
             button1.Text = "&Add New Item";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // comboBox1
             // 
@@ -113,7 +114,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(507, 825);
+            ClientSize = new Size(507, 749);
             Controls.Add(dataGridView1);
             Controls.Add(textBox1);
             Controls.Add(label2);

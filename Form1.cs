@@ -11,13 +11,21 @@ namespace WinFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Create a list of objects
-            List<Person> people = new List<Person>();
-            people.Add(new Person { ID = 1, Name = "John Doe" });
-            people.Add(new Person { ID = 2, Name = "Jane Smith" });
+
 
             // Bind the list to a DataGridView
-            dataGridView1.DataSource = people;
+            dataGridView1.DataSource = InventoryManager.GetItems();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.ShowDialog(this);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
