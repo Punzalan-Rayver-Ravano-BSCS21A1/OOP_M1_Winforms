@@ -1,10 +1,13 @@
-using System;
-using System.Windows.Forms;
+using WinFormsApp1.Repositories;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        #region Fields
+        private BindingSource bindingSource = new();
+        #endregion
+
         #region Ctor
         public Form1()
         {
@@ -19,10 +22,10 @@ namespace WinFormsApp1
             foreach (DataGridViewColumn column in dataGridView1.Columns)
             {
                 column.Visible = true;
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;  // Adjusts width to fill available space
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;  // Adjusts width to fill available space
             }
 
-            dataGridView1.DataSource = StudentManager.Instance().GetItems();
+            RefreshDataGridView();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -39,15 +42,18 @@ namespace WinFormsApp1
             {
                 if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
                 {
-                    var selectedStudent = dataGridView1.Rows[e.RowIndex].DataBoundItem as Student;
-                    if (selectedStudent != null)
+
+                    var obj = dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                    Student? selectedStudent = UnitOfWork.StudentRepository.Get().FirstOrDefault(s => s.ID == (int)obj.GetType().GetProperty("ID").GetValue(obj));
+                    if (selectedStudent == null)
                     {
-                        Form2 form = new Form2(selectedStudent);
-                        form.ShowDialog(this);
+                        MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Form2 form = new(selectedStudent);
+                        form.ShowDialog(this);
+                        RefreshDataGridView();
                     }
                 }
             }
@@ -61,15 +67,15 @@ namespace WinFormsApp1
         #endregion
 
         #region Private Methods
-        private void RefreshDataGridView()
+        private void RefreshDataGridView(IEnumerable<Student>? students = default)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = StudentManager.Instance().GetItems();
-
+            students ??= UnitOfWork.StudentRepository.Get() ?? [];
+            dataGridView1.DataSource = students.Select(s => new StudentModel(s.ID, s.Name, s.Section, s.Course)).ToArray();
         }
 
         #endregion
 
+        record StudentModel(int ID,string Name, string Section, string Course);
 
     }
 }

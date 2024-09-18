@@ -86,10 +86,10 @@
             label2.TabIndex = 5;
             label2.Text = "Search";
             // 
-            // textBox1
+            // txtFirstName
             // 
             textBox1.Location = new Point(96, 43);
-            textBox1.Name = "textBox1";
+            textBox1.Name = "txtFirstName";
             textBox1.Size = new Size(405, 23);
             textBox1.TabIndex = 6;
             // 
@@ -101,10 +101,12 @@
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(478, 601);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+          
             // 
             // Form1
             // 

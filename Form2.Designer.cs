@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtFirstName = new TextBox();
+            txtLastName = new TextBox();
             label2 = new Label();
             button1 = new Button();
             button2 = new Button();
-            textBox3 = new TextBox();
+            txtSection = new TextBox();
             label3 = new Label();
-            textBox4 = new TextBox();
+            txtCourse = new TextBox();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -49,21 +49,21 @@
             label1.TabIndex = 0;
             label1.Text = "First Name";
             // 
-            // textBox1
+            // txtFirstName
             // 
-            textBox1.CharacterCasing = CharacterCasing.Upper;
-            textBox1.Location = new Point(104, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(322, 23);
-            textBox1.TabIndex = 1;
+            txtFirstName.CharacterCasing = CharacterCasing.Upper;
+            txtFirstName.Location = new Point(104, 16);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(322, 23);
+            txtFirstName.TabIndex = 1;
             // 
-            // textBox2
+            // txtLastName
             // 
-            textBox2.CharacterCasing = CharacterCasing.Upper;
-            textBox2.Location = new Point(104, 45);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(322, 23);
-            textBox2.TabIndex = 2;
+            txtLastName.CharacterCasing = CharacterCasing.Upper;
+            txtLastName.Location = new Point(104, 45);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(322, 23);
+            txtLastName.TabIndex = 2;
             // 
             // label2
             // 
@@ -94,13 +94,13 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += Button2_Click;
             // 
-            // textBox3
+            // txtSection
             // 
-            textBox3.CharacterCasing = CharacterCasing.Upper;
-            textBox3.Location = new Point(104, 103);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(322, 23);
-            textBox3.TabIndex = 4;
+            txtSection.CharacterCasing = CharacterCasing.Upper;
+            txtSection.Location = new Point(104, 103);
+            txtSection.Name = "txtSection";
+            txtSection.Size = new Size(322, 23);
+            txtSection.TabIndex = 4;
             // 
             // label3
             // 
@@ -111,13 +111,13 @@
             label3.TabIndex = 8;
             label3.Text = "Section";
             // 
-            // textBox4
+            // txtCourse
             // 
-            textBox4.CharacterCasing = CharacterCasing.Upper;
-            textBox4.Location = new Point(104, 74);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(322, 23);
-            textBox4.TabIndex = 3;
+            txtCourse.CharacterCasing = CharacterCasing.Upper;
+            txtCourse.Location = new Point(104, 74);
+            txtCourse.Name = "txtCourse";
+            txtCourse.Size = new Size(322, 23);
+            txtCourse.TabIndex = 3;
             // 
             // label4
             // 
@@ -133,15 +133,15 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(448, 180);
-            Controls.Add(textBox3);
+            Controls.Add(txtSection);
             Controls.Add(label3);
-            Controls.Add(textBox4);
+            Controls.Add(txtCourse);
             Controls.Add(label4);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox2);
+            Controls.Add(txtLastName);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtFirstName);
             Controls.Add(label1);
             Name = "Form2";
             Text = "Form2";
@@ -152,14 +152,14 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtFirstName;
+        private TextBox txtLastName;
         private Label label2;
         private Button button1;
         private Button button2;
-        private TextBox textBox3;
+        private TextBox txtSection;
         private Label label3;
-        private TextBox textBox4;
+        private TextBox txtCourse;
         private Label label4;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using WinFormsApp1.Repositories;
+
+namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
@@ -11,10 +13,10 @@
         public Form2(Student student) : this()
         {
             id = student.ID;
-            textBox1.Text = student.FirstName;
-            textBox2.Text = student.LastName;
-            textBox3.Text = student.Section;
-            textBox4.Text = student.Course;
+            txtFirstName.Text = student.FirstName;
+            txtLastName.Text = student.LastName;
+            txtSection.Text = student.Section;
+            txtCourse.Text = student.Course;
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -27,20 +29,20 @@
         {
             if (id.HasValue)
             {
-                StudentManager.Instance().UpdateItem(
-                   id.Value,
-                   textBox2.Text,
-                   textBox1.Text,
-                   textBox4.Text,
-                   textBox3.Text);
+                UnitOfWork.StudentRepository.Update(
+                   id: id.Value,
+                   firstName: txtFirstName.Text,
+                   lastName: txtLastName.Text,
+                   course: txtCourse.Text,
+                   section: txtSection.Text);
             }
             else
             {
-                StudentManager.Instance().AddItem(
-                    textBox2.Text,
-                    textBox1.Text,
-                    textBox4.Text,
-                    textBox3.Text);
+               UnitOfWork.StudentRepository.Add(
+                    firstName: txtFirstName.Text,
+                   lastName: txtLastName.Text,
+                   course: txtCourse.Text,
+                   section: txtSection.Text);
             }
             this.Close();
         }
