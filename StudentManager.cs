@@ -3,7 +3,7 @@
     public static class StudentManager
     {
         static IStudentRepository? repository;
-        public static IStudentRepository Create()
+        public static IStudentRepository Instance()
         {
             repository ??= new StudentRepository();
 

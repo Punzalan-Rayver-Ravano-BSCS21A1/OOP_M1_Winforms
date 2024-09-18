@@ -14,32 +14,4 @@ namespace WinFormsApp1
             Application.Run(new Form1());
         }
     }
-
-    public class Tinker : IBlackSmith
-    {
-        public void ForgeItem()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class WeaponSmith : BlackSmith, IBlackSmith
-    {
-        public void ForgeItem()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class BlackSmith
-    {
-        public void ForgeSword()
-        {
-
-        }
-    }
-
-    public interface IBlackSmith
-    {
-        void ForgeItem();
-    }
 }

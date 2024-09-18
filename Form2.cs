@@ -1,41 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinFormsApp1
+﻿namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
-        private int _nextId = 0;
+        int? id = null;
         public Form2()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public Form2(Student student) : this()
         {
+            id = student.ID;
+            textBox1.Text = student.FirstName;
+            textBox2.Text = student.LastName;
+            textBox3.Text = student.Section;
+            textBox4.Text = student.Course;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+         
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            StudentManager.Create().AddItem(
-                textBox2.Text, 
-                textBox1.Text,
-                textBox4.Text,
-                textBox3.Text);
+            if (id.HasValue)
+            {
+                StudentManager.Instance().UpdateItem(
+                   id.Value,
+                   textBox2.Text,
+                   textBox1.Text,
+                   textBox4.Text,
+                   textBox3.Text);
+            }
+            else
+            {
+                StudentManager.Instance().AddItem(
+                    textBox2.Text,
+                    textBox1.Text,
+                    textBox4.Text,
+                    textBox3.Text);
+            }
             this.Close();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            _nextId = StudentManager.Create().GetItems().Count + 1;
         }
     }
 }

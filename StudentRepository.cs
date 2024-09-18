@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WinFormsApp1
+﻿namespace WinFormsApp1
 {
-
-    public class DbRepository : IStudentRepository
-    {
-        public void AddItem(string firstName, string lastName, string section, string course)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Student> GetItems()
-        {
-            throw new NotImplementedException();
-        }
-    }
     public class StudentRepository : IStudentRepository
     {
-        readonly List<Student> students = new();
+        readonly List<Student> students;
+
+        public StudentRepository()
+        {
+            students = [];
+        }
 
         public void AddItem(string firstName, string lastName, string section, string course)
         {
@@ -29,8 +15,20 @@ namespace WinFormsApp1
         }
         public List<Student> GetItems()
         {
-            // Create a list of objects
+            // Instance a list of objects
             return students;
+        }
+
+        public void UpdateItem(int id, string firstName, string lastName, string section, string course)
+        {
+            Student? student = students.Find(x => x.ID == id);
+            if (student != null)
+            {
+                student.FirstName = firstName;
+                student.LastName = lastName;
+                student.Section = section;
+                student.Course = course;
+            }
         }
     }
 }
